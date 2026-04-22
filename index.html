@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Audit Away LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --accent:#111;
+  --accent-light:#e0e0e0;
+  --border:rgba(0,0,0,.15);
+  --bg:#f9f9f9;
+  --ink:#111;
+  --muted:#666;
+  --card:#fff;
+  --hero-bg:#111;
+  --hero-ink:#fff;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  margin:0;padding:0;
+  transition:background .3s,color .3s;
+}
+
+body.dark .section-label{ color:#8DB135; }
+body.dark .eyebrow{ color:#8DB135; }
+body.dark .sub{ color:#8DB135; }
+body:not(.dark) .float-label{
+  border:1px solid #8DB135;
+}
+body.dark .float-label{ color:#8DB135; }
+
+body.dark{
+  --bg:#111;
+  --ink:#EAEAEA;
+  --muted:#999;
+  --card:#1e1e1e;
+  --border:rgba(255,255,255,.15);
+  --accent:#EAEAEA;
+  --accent-light:rgba(255,255,255,.15);
+  --hero-bg:#000;
+  --hero-ink:#fff;
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 5%;
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:10;
+  background:var(--bg);
+  transition:background .3s;
+}
+
+.brand{
+  font-family:'Playfair Display',serif;
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:6px;
+  text-transform:uppercase;
+  padding:4px 12px;
+  border-radius:4px;
+}
+body:not(.dark) .brand{
+  border:2px solid #8DB135;
+}
+
+.nav-right{display:flex;gap:8px;}
+
+.toggle{
+  min-width:72px;
+  height:32px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:var(--card);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:13px;color:var(--ink);
+  padding:0 12px;
+}
+
+.page{
+  max-width:100%;
+  margin:0;
+  padding:40px 6% 60px;
+  box-sizing:border-box;
+}
+
+.eyebrow{
+  font-size:15px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:var(--muted);
+  padding:0 0 18px;
+  line-height:1.7;
+  border-bottom:1px solid var(--border);
+  margin-bottom:30px;
+  font-weight:500;
+}
+
+.logo-wrap{
+  margin-bottom:32px;
+  display:inline-block;
+}
+
+.logo-audit{
+  background:var(--hero-bg);
+  color:var(--hero-ink);
+  font-family:'Playfair Display',serif;
+  font-size:clamp(58px,17vw,110px);
+  font-weight:800;
+  letter-spacing:4px;
+  padding:16px 24px 12px;
+  line-height:1;
+  display:block;
+}
+
+.logo-away-row{
+  display:flex;
+  align-items:stretch;
+}
+
+.logo-bar{
+  width:5px;
+  background:var(--ink);
+  flex-shrink:0;
+}
+
+.logo-away-inner{
+  padding:10px 24px 6px 20px;
+}
+
+.logo-away-inner span{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(58px,17vw,110px);
+  font-weight:800;
+  letter-spacing:4px;
+  line-height:1;
+  display:block;
+  color:var(--ink);
+}
+
+.sub{
+  font-family:'Inter',sans-serif;
+  font-size:13px;
+  letter-spacing:5px;
+  margin-top:10px;
+  padding-top:9px;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  text-transform:uppercase;
+  font-weight:600;
+}
+
+.hero-desc{
+  font-size:clamp(17px,2vw,22px);
+  font-weight:400;
+  line-height:1.8;
+  margin-bottom:36px;
+  color:var(--ink);
+}
+
+.stats-bar{
+  border-top:2px solid var(--ink);
+  padding-top:28px;
+  margin-bottom:24px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px 24px;
+}
+
+.stat-num{
+  font-size:52px;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:-1px;
+}
+
+.stat-desc{
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:6px 0 8px;
+  font-weight:600;
+}
+
+.stat-sub{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.6;
+  font-weight:400;
+}
+
+.section{
+  margin-bottom:40px;
+}
+
+.section-label{
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--ink);
+  margin-bottom:18px;
+}
+
+.cap-card{
+  border:1px solid var(--border);
+  background:var(--card);
+  padding:20px 20px 16px;
+  position:relative;
+}
+
+.float-label{
+  position:absolute;
+  top:-12px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--bg);
+  border:1px solid var(--border);
+  padding:4px 16px;
+  border-radius:20px;
+  font-size:15px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--ink);
+  white-space:nowrap;
+  font-weight:600;
+}
+
+.cap-list{
+  list-style:disc;
+  padding-left:18px;
+  margin-top:4px;
+}
+
+.cap-list li{
+  font-size:17px;
+  font-weight:400;
+  line-height:1.65;
+  margin:8px 0;
+}
+
+.cap-list li::marker{color:var(--ink);}
+
+.sme-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+}
+
+.sme-item{
+  border:1px solid var(--border);
+  padding:9px 13px;
+  font-size:13px;
+  font-weight:400;
+  line-height:1.5;
+  background:var(--card);
+  color:var(--ink);
+}
+
+.affil-strip{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:7px;
+  width:100%;
+  margin-top:8px;
+}
+
+.affil-item{
+  border:1px solid var(--border);
+  padding:16px 14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:10px;
+  min-height:110px;
+  background:var(--card);
+}
+
+.affil-name{
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--ink);
+  font-weight:700;
+  line-height:1.4;
+}
+
+.affil-desc{
+  font-size:13px;
+  line-height:1.5;
+  color:var(--muted);
+}
+
+.affil-item.wim-logo{
+  padding:12px;
+  background:#fff;
+}
+
+.affil-item.wim-logo img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.affil-item.logo-card{
+  padding:12px;
+  background:#fff;
+}
+
+.affil-item.logo-card img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.affil-item.ame-logo{
+  background:#000;
+}
+
+.sme-item a,
+.affil-item a,
+.contact-email a{
+  color:inherit;
+  text-decoration:underline;
+  text-decoration-color:#8DB135;
+  text-underline-offset:3px;
+}
+
+.contact-bar{
+  margin-top:28px;
+  padding-top:18px;
+  border-top:1px solid var(--border);
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.contact-label{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--muted);
+  padding:3px 10px;
+  border-radius:4px;
+}
+
+body:not(.dark) .contact-label{
+  border:2px solid #8DB135;
+}
+
+.contact-email a{
+  font-weight:500;
+  font-size:15px;
+}
+
+.footer{
+  margin-top:10px;
+  padding-top:8px;
+  border-top:1px solid var(--border);
+  font-size:13px;
+  color:var(--muted);
+}
+
+.footer-tagline{
+  font-size:10px;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  opacity:.45;
+  text-align:center;
+  margin-top:14px;
+}
+
+@media(min-width:860px){
+  .page{max-width:100%;padding:40px 6% 60px;}
+  .sme-grid{grid-template-columns:1fr 1fr 1fr;}
+  .stats-bar{grid-template-columns:repeat(4,1fr);}
+  .stat-num{font-size:60px;}
+  .logo-audit{font-size:clamp(80px,10vw,120px);}
+  .logo-away-inner span{font-size:clamp(80px,10vw,120px);}
+}
+
+@media(max-width:600px){
+  .stats-bar{grid-template-columns:1fr 1fr;}
+  .sme-grid{grid-template-columns:1fr 1fr;}
+  .affil-strip{grid-template-columns:1fr;}
+  .page{padding:24px 5% 60px;}
+  .hero-desc{font-size:16px;}
+  .stat-num{font-size:36px;}
+  .stat-desc{font-size:9px;letter-spacing:1.5px;}
+  .stat-sub{font-size:11px;}
+  .section-label{font-size:13px;}
+  .cap-list li{font-size:15px;}
+  .sme-item{font-size:12px;}
+  .eyebrow{font-size:11px;letter-spacing:3px;}
+  .sub{font-size:10px;letter-spacing:3px;}
+}
+
+.sme-item{ border:1px solid #000 !important; }
+body.dark .sme-item{ border:1px solid #fff !important; }
+body.dark .contact-label{ color:#8DB135; }
+</style>
+</head>
+<body class="dark">
+
+<nav>
+  <div class="brand">Audit Away LLC</div>
+  <div class="nav-right">
+    <button class="toggle" id="theme-toggle" type="button">Light</button>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="eyebrow">
+    Audit. Assess. Advance.
+  </div>
+
+  <div class="logo-wrap">
+    <div class="logo-audit">AUDIT</div>
+    <div class="logo-away-row">
+      <div class="logo-bar"></div>
+      <div class="logo-away-inner">
+        <span>AWAY</span>
+        <div class="sub">Quality &nbsp;&middot;&nbsp; Compliance &nbsp;&middot;&nbsp; Integrity</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-desc">
+    Enterprise-grade quality management consulting for aerospace, defense, and advanced manufacturing &mdash; backed by 20+ years of proven results.
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-block">
+      <div class="stat-num">20<span style="color:#8DB135;">+</span></div>
+      <div class="stat-desc">Years of Industry Experience</div>
+      <div class="stat-sub">Aerospace &middot; Defense &middot; Automotive &middot; Medical</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">200<span style="color:#8DB135;">+</span></div>
+      <div class="stat-desc">Stakeholders Trained</div>
+      <div class="stat-sub">Compliance &amp; quality systems</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">$500M<span style="color:#8DB135;">+</span></div>
+      <div class="stat-desc">Programs Supported</div>
+      <div class="stat-sub">Certification programs &amp; operations</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">7<span style="color:#8DB135;">+</span></div>
+      <div class="stat-desc">Active Certifications</div>
+      <div class="stat-sub">Industry-recognized credentials across quality, engineering &amp; compliance</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="cap-card">
+      <div class="float-label">Core Capabilities</div>
+      <ul class="cap-list">
+        <li>Quality Management Systems (QMS)</li>
+        <li>AS9100 &amp; IATF 16949 Implementation</li>
+        <li>ITAR &amp; Export Compliance</li>
+        <li>Supplier Quality Development</li>
+        <li>Corrective Action (CAPA) Programs</li>
+        <li>ERP &amp; QMS Integration</li>
+        <li>Workforce Training &amp; Audit Readiness</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Subject Matter Expert</div>
+    <div class="sme-grid">
+      <div class="sme-item"><a href="https://www.pmddtc.state.gov/ddtc_public?id=ddtc_public_portal_itar_landing" target="_blank" rel="noopener noreferrer">ITAR &amp; Export Control</a></div>
+      <div class="sme-item"><a href="https://environment.ec.europa.eu/topics/waste-and-recycling/rohs-directive_en" target="_blank" rel="noopener noreferrer">EU REACH &amp; RoHS Directives</a></div>
+      <div class="sme-item"><a href="https://www.state.gov/conflict-minerals" target="_blank" rel="noopener noreferrer">Conflict Minerals &mdash; 3TG Reporting</a></div>
+      <div class="sme-item"><a href="https://public.mdsystem.com/en/web/imds-public-pages" target="_blank" rel="noopener noreferrer">IMDS Reporting</a></div>
+      <div class="sme-item"><a href="https://ww2.arb.ca.gov/about" target="_blank" rel="noopener noreferrer">EPA &amp; CARB Regulatory Affairs</a></div>
+      <div class="sme-item"><a href="https://www.faa.gov/airports/airport_safety/fod" target="_blank" rel="noopener noreferrer">FOD Prevention Program</a></div>
+      <div class="sme-item">Supplier Quality Development</div>
+      <div class="sme-item">CAPA &amp; Root Cause Analysis</div>
+      <div class="sme-item">ERP Quality Integration</div>
+      <div class="sme-item">Cleanroom Operations &mdash; ISO Class 5</div>
+      <div class="sme-item">FDA Regulatory Compliance</div>
+      <div class="sme-item">DFARS Compliance</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Industry Affiliations</div>
+    <div class="affil-strip">
+      <div class="affil-item logo-card">
+        <a href="https://www.sme.org" target="_blank" rel="noopener noreferrer" aria-label="SME member logo">
+          <img src="SME Member.jpg" alt="SME member logo">
+        </a>
+      </div>
+      <div class="affil-item wim-logo">
+        <a href="https://www.womeninmanufacturing.org" target="_blank" rel="noopener noreferrer" aria-label="Women in Manufacturing proud member logo">
+          <img src="WIM_Proud_Member_Logo_-_horizontal.jpg" alt="Proud Member Women in Manufacturing logo">
+        </a>
+      </div>
+      <div class="affil-item logo-card ame-logo">
+        <a href="https://www.ame.org" target="_blank" rel="noopener noreferrer" aria-label="AME logo">
+          <img src="AME Symbol.jpg" alt="Association for Manufacturing Excellence logo">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-bar">
+    <div class="contact-label">Inquiries</div>
+    <div class="contact-email"><a href="mailto:info@auditaway.com">info@auditaway.com</a></div>
+  </div>
+
+  <div class="footer">
+    <span>&copy; 2026 Audit Away LLC &nbsp;&middot;&nbsp; Michigan</span>
+  </div>
+
+  <div class="footer-tagline">AI is a tool. We are the judgment.</div>
+
+</div>
+
+<script>
+const themeToggle = document.getElementById('theme-toggle');
+
+function syncThemeToggle() {
+  const isDark = document.body.classList.contains('dark');
+  themeToggle.textContent = isDark ? 'Light' : 'Dark';
+  themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+}
+
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  syncThemeToggle();
+});
+
+syncThemeToggle();
+</script>
+
+</body>
+</html>
