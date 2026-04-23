@@ -72,17 +72,30 @@ body:not(.dark) .brand{
   border:2px solid #8DB135;
 }
 
-.nav-right{display:flex;gap:8px;}
+.nav-right{display:flex;gap:20px;align-items:center;}
+
+.nav-link{
+  font-family:'Inter',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--ink);
+  text-decoration:none;
+  opacity:.7;
+  transition:opacity .2s;
+}
+.nav-link:hover{opacity:1;}
 
 .toggle{
-  min-width:72px;
-  height:32px;
-  border-radius:999px;
+  width:36px;
+  height:36px;
+  border-radius:50%;
   border:1px solid var(--border);
   background:var(--card);
   display:flex;align-items:center;justify-content:center;
-  cursor:pointer;font-size:15px;color:var(--ink);
-  padding:0 12px;
+  cursor:pointer;font-size:18px;color:var(--ink);
+  padding:0;
 }
 
 .page{
@@ -426,7 +439,9 @@ body.dark .contact-label{ color:#8DB135; }
 <nav>
   <div class="brand">Audit Away LLC</div>
   <div class="nav-right">
-    <button class="toggle" id="theme-toggle" type="button">Light</button>
+    <a href="about.html" class="nav-link">Who We Are</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <button class="toggle" id="theme-toggle" type="button">🌙</button>
   </div>
 </nav>
 
@@ -546,7 +561,7 @@ const themeToggle = document.getElementById('theme-toggle');
 
 function syncThemeToggle() {
   const isDark = document.body.classList.contains('dark');
-  themeToggle.textContent = isDark ? 'Light' : 'Dark';
+  themeToggle.textContent = isDark ? '☀️' : '🌙';
   themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
 }
 
