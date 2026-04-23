@@ -52,21 +52,24 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:18px 5%;
+  padding:14px 5%;
   border-bottom:1px solid var(--border);
-  position:sticky;top:0;z-index:10;
+  position:sticky;top:0;z-index:100;
   background:var(--bg);
   transition:background .3s;
 }
 
 .brand{
   font-family:'Playfair Display',serif;
-  font-size:18px;
+  font-size:15px;
   font-weight:800;
-  letter-spacing:6px;
+  letter-spacing:4px;
   text-transform:uppercase;
-  padding:4px 12px;
+  padding:4px 10px;
   border-radius:4px;
+  white-space:nowrap;
+  color:var(--ink);
+  text-decoration:none;
 }
 body:not(.dark) .brand{
   border:2px solid #8DB135;
@@ -96,12 +99,58 @@ body:not(.dark) .brand{
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;font-size:18px;color:var(--ink);
   padding:0;
+  flex-shrink:0;
+}
+
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  background:none;
+  border:none;
+  padding:4px;
+}
+.hamburger span{
+  display:block;
+  width:24px;
+  height:2px;
+  background:var(--ink);
+  transition:all .3s;
+}
+
+.mobile-menu{
+  display:none;
+  flex-direction:column;
+  background:var(--bg);
+  border-bottom:1px solid var(--border);
+  padding:16px 5%;
+  gap:20px;
+  position:sticky;
+  top:57px;
+  z-index:99;
+}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{
+  font-family:'Inter',sans-serif;
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--ink);
+  text-decoration:none;
+  opacity:.8;
+}
+
+@media(max-width:640px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
 }
 
 .page{
   max-width:100%;
   margin:0;
-  padding:40px 6% 60px;
+  padding:40px 6% 0;
   box-sizing:border-box;
 }
 
@@ -417,16 +466,19 @@ body:not(.dark) .contact-label{
   .stats-bar{grid-template-columns:1fr 1fr;}
   .sme-grid{grid-template-columns:1fr 1fr;}
   .affil-strip{grid-template-columns:1fr;}
-  .page{padding:24px 5% 60px;}
-  .hero-desc{font-size:19px;}
-  .stat-num{font-size:42px;}
-  .stat-desc{font-size:11px;letter-spacing:1.5px;}
-  .stat-sub{font-size:13px;}
-  .section-label{font-size:15px;}
-  .cap-list li{font-size:17px;}
-  .sme-item{font-size:14px;}
-  .eyebrow{font-size:13px;letter-spacing:3px;}
-  .sub{font-size:12px;letter-spacing:3px;}
+  .page{padding:24px 5% 0;}
+  .hero-desc{font-size:20px;}
+  .stat-num{font-size:44px;}
+  .stat-desc{font-size:13px;letter-spacing:1.5px;}
+  .stat-sub{font-size:15px;}
+  .section-label{font-size:17px;}
+  .cap-list li{font-size:18px;}
+  .sme-item{font-size:15px;}
+  .eyebrow{font-size:15px;letter-spacing:3px;}
+  .sub{font-size:14px;letter-spacing:3px;}
+  .float-label{font-size:15px;}
+  .contact-email a{font-size:17px;}
+  .footer{font-size:15px;}
 }
 
 .sme-item{ border:1px solid #000 !important; }
@@ -439,11 +491,20 @@ body.dark .contact-label{ color:#8DB135; }
 <nav>
   <div class="brand">Audit Away LLC</div>
   <div class="nav-right">
-    <a href="about.html" class="nav-link">Who We Are</a>
-    <a href="contact.html" class="nav-link">Contact</a>
+    <div class="nav-links" style="display:flex;gap:20px;align-items:center;">
+      <a href="about.html" class="nav-link">Who We Are</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
     <button class="toggle" id="theme-toggle" type="button">🌙</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="about.html">Who We Are</a>
+  <a href="contact.html">Contact</a>
+</div>
 
 <div class="page">
 
@@ -558,6 +619,16 @@ body.dark .contact-label{ color:#8DB135; }
 
 <script>
 const themeToggle = document.getElementById('theme-toggle');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+});
+
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+});
 
 function syncThemeToggle() {
   const isDark = document.body.classList.contains('dark');
