@@ -38,11 +38,11 @@ body.dark .float-label{ color:#8DB135; }
 
 body.dark{
   --bg:#111;
-  --ink:#EAEAEA;
-  --muted:#999;
+  --ink:#fff;
+  --muted:#fff;
   --card:#1e1e1e;
   --border:rgba(255,255,255,.15);
-  --accent:#EAEAEA;
+  --accent:#fff;
   --accent-light:rgba(255,255,255,.15);
   --hero-bg:#000;
   --hero-ink:#fff;
@@ -61,7 +61,7 @@ nav{
 
 .brand{
   font-family:'Playfair Display',serif;
-  font-size:15px;
+  font-size:18px;
   font-weight:800;
   letter-spacing:6px;
   text-transform:uppercase;
@@ -81,7 +81,7 @@ body:not(.dark) .brand{
   border:1px solid var(--border);
   background:var(--card);
   display:flex;align-items:center;justify-content:center;
-  cursor:pointer;font-size:13px;color:var(--ink);
+  cursor:pointer;font-size:15px;color:var(--ink);
   padding:0 12px;
 }
 
@@ -93,7 +93,7 @@ body:not(.dark) .brand{
 }
 
 .eyebrow{
-  font-size:15px;
+  font-size:18px;
   letter-spacing:5px;
   text-transform:uppercase;
   color:var(--muted);
@@ -119,6 +119,11 @@ body:not(.dark) .brand{
   padding:16px 24px 12px;
   line-height:1;
   display:block;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+  transform:translateZ(0);
+  backface-visibility:hidden;
 }
 
 .logo-away-row{
@@ -144,11 +149,16 @@ body:not(.dark) .brand{
   line-height:1;
   display:block;
   color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+  transform:translateZ(0);
+  backface-visibility:hidden;
 }
 
 .sub{
   font-family:'Inter',sans-serif;
-  font-size:13px;
+  font-size:16px;
   letter-spacing:5px;
   margin-top:10px;
   padding-top:9px;
@@ -159,7 +169,7 @@ body:not(.dark) .brand{
 }
 
 .hero-desc{
-  font-size:clamp(17px,2vw,22px);
+  font-size:clamp(20px,2.3vw,26px);
   font-weight:400;
   line-height:1.8;
   margin-bottom:36px;
@@ -176,14 +186,14 @@ body:not(.dark) .brand{
 }
 
 .stat-num{
-  font-size:52px;
+  font-size:60px;
   font-weight:700;
   line-height:1;
   letter-spacing:-1px;
 }
 
 .stat-desc{
-  font-size:12px;
+  font-size:14px;
   letter-spacing:2px;
   text-transform:uppercase;
   color:var(--muted);
@@ -192,7 +202,7 @@ body:not(.dark) .brand{
 }
 
 .stat-sub{
-  font-size:14px;
+  font-size:16px;
   color:var(--muted);
   line-height:1.6;
   font-weight:400;
@@ -203,7 +213,7 @@ body:not(.dark) .brand{
 }
 
 .section-label{
-  font-size:13px;
+  font-size:16px;
   font-weight:700;
   letter-spacing:3px;
   text-transform:uppercase;
@@ -227,7 +237,7 @@ body:not(.dark) .brand{
   border:1px solid var(--border);
   padding:4px 16px;
   border-radius:20px;
-  font-size:15px;
+  font-size:17px;
   letter-spacing:2px;
   text-transform:uppercase;
   color:var(--ink);
@@ -242,7 +252,7 @@ body:not(.dark) .brand{
 }
 
 .cap-list li{
-  font-size:17px;
+  font-size:20px;
   font-weight:400;
   line-height:1.65;
   margin:8px 0;
@@ -259,7 +269,7 @@ body:not(.dark) .brand{
 .sme-item{
   border:1px solid var(--border);
   padding:9px 13px;
-  font-size:13px;
+  font-size:16px;
   font-weight:400;
   line-height:1.5;
   background:var(--card);
@@ -286,7 +296,7 @@ body:not(.dark) .brand{
 }
 
 .affil-name{
-  font-size:11px;
+  font-size:13px;
   letter-spacing:2px;
   text-transform:uppercase;
   color:var(--ink);
@@ -295,7 +305,7 @@ body:not(.dark) .brand{
 }
 
 .affil-desc{
-  font-size:13px;
+  font-size:15px;
   line-height:1.5;
   color:var(--muted);
 }
@@ -346,7 +356,7 @@ body:not(.dark) .brand{
 }
 
 .contact-label{
-  font-size:11px;
+  font-size:14px;
   font-weight:700;
   letter-spacing:3px;
   text-transform:uppercase;
@@ -361,19 +371,19 @@ body:not(.dark) .contact-label{
 
 .contact-email a{
   font-weight:500;
-  font-size:15px;
+  font-size:18px;
 }
 
 .footer{
   margin-top:10px;
   padding-top:8px;
   border-top:1px solid var(--border);
-  font-size:13px;
+  font-size:16px;
   color:var(--muted);
 }
 
 .footer-tagline{
-  font-size:10px;
+  font-size:13px;
   letter-spacing:2.5px;
   text-transform:uppercase;
   opacity:.45;
@@ -385,7 +395,7 @@ body:not(.dark) .contact-label{
   .page{max-width:100%;padding:40px 6% 60px;}
   .sme-grid{grid-template-columns:1fr 1fr 1fr;}
   .stats-bar{grid-template-columns:repeat(4,1fr);}
-  .stat-num{font-size:60px;}
+  .stat-num{font-size:72px;}
   .logo-audit{font-size:clamp(80px,10vw,120px);}
   .logo-away-inner span{font-size:clamp(80px,10vw,120px);}
 }
@@ -395,15 +405,15 @@ body:not(.dark) .contact-label{
   .sme-grid{grid-template-columns:1fr 1fr;}
   .affil-strip{grid-template-columns:1fr;}
   .page{padding:24px 5% 60px;}
-  .hero-desc{font-size:16px;}
-  .stat-num{font-size:36px;}
-  .stat-desc{font-size:9px;letter-spacing:1.5px;}
-  .stat-sub{font-size:11px;}
-  .section-label{font-size:13px;}
-  .cap-list li{font-size:15px;}
-  .sme-item{font-size:12px;}
-  .eyebrow{font-size:11px;letter-spacing:3px;}
-  .sub{font-size:10px;letter-spacing:3px;}
+  .hero-desc{font-size:19px;}
+  .stat-num{font-size:42px;}
+  .stat-desc{font-size:11px;letter-spacing:1.5px;}
+  .stat-sub{font-size:13px;}
+  .section-label{font-size:15px;}
+  .cap-list li{font-size:17px;}
+  .sme-item{font-size:14px;}
+  .eyebrow{font-size:13px;letter-spacing:3px;}
+  .sub{font-size:12px;letter-spacing:3px;}
 }
 
 .sme-item{ border:1px solid #000 !important; }
