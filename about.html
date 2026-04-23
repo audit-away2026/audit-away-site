@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Who We Are — Audit Away LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --accent:#111;
+  --accent-light:#e0e0e0;
+  --border:rgba(0,0,0,.15);
+  --bg:#f9f9f9;
+  --ink:#111;
+  --muted:#666;
+  --card:#fff;
+  --hero-bg:#111;
+  --hero-ink:#fff;
+  --green:#8DB135;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  margin:0;padding:0;
+  transition:background .3s,color .3s;
+  -webkit-font-smoothing:antialiased;
+}
+
+body.dark .section-label{ color:#8DB135; }
+body.dark .eyebrow{ color:#8DB135; }
+
+body.dark{
+  --bg:#111;
+  --ink:#fff;
+  --muted:#fff;
+  --card:#1e1e1e;
+  --border:rgba(255,255,255,.15);
+  --accent:#fff;
+  --accent-light:rgba(255,255,255,.15);
+  --hero-bg:#000;
+  --hero-ink:#fff;
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 5%;
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:10;
+  background:var(--bg);
+  transition:background .3s;
+}
+
+.brand{
+  font-family:'Playfair Display',serif;
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:6px;
+  text-transform:uppercase;
+  padding:4px 12px;
+  border-radius:4px;
+  text-decoration:none;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+body:not(.dark) .brand{ border:2px solid #8DB135; }
+
+.nav-right{display:flex;gap:20px;align-items:center;}
+
+.nav-link{
+  font-family:'Inter',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--ink);
+  text-decoration:none;
+  opacity:.7;
+  transition:opacity .2s;
+}
+.nav-link:hover{opacity:1;}
+
+.toggle{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:var(--card);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:18px;color:var(--ink);
+  padding:0;
+}
+
+.page{
+  max-width:100%;
+  margin:0;
+  padding:40px 6% 60px;
+  box-sizing:border-box;
+}
+
+.eyebrow{
+  font-size:18px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:var(--muted);
+  padding:0 0 18px;
+  line-height:1.7;
+  border-bottom:1px solid var(--border);
+  margin-bottom:36px;
+  font-weight:500;
+}
+
+.page-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(44px,8vw,72px);
+  font-weight:800;
+  line-height:1.05;
+  color:var(--ink);
+  margin-bottom:40px;
+  -webkit-font-smoothing:antialiased;
+}
+
+.intro-block{
+  border-top:2px solid var(--ink);
+  padding-top:32px;
+  margin-bottom:64px;
+}
+
+.intro-text{
+  font-size:clamp(18px,2vw,22px);
+  font-weight:400;
+  line-height:1.9;
+  color:var(--ink);
+  margin-bottom:24px;
+}
+
+.pull-quote{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(22px,3vw,32px);
+  font-weight:800;
+  line-height:1.35;
+  color:var(--ink);
+  border-left:4px solid #8DB135;
+  padding-left:24px;
+  margin:40px 0;
+  -webkit-font-smoothing:antialiased;
+}
+
+.section{
+  border-top:1px solid var(--border);
+  padding-top:48px;
+  margin-bottom:56px;
+}
+
+.section-label{
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--ink);
+  margin-bottom:28px;
+}
+
+.body-text{
+  font-size:clamp(17px,1.8vw,20px);
+  font-weight:400;
+  line-height:1.9;
+  color:var(--ink);
+  margin-bottom:22px;
+}
+
+.closing-line{
+  font-size:clamp(17px,1.8vw,20px);
+  font-weight:700;
+  line-height:1.6;
+  color:var(--ink);
+  margin-top:8px;
+}
+
+.closing-statement{
+  border-top:2px solid var(--ink);
+  padding-top:36px;
+  margin-top:16px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(20px,3vw,32px);
+  font-weight:800;
+  line-height:1.3;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+
+.closing-statement .quote-mark{
+  color:#8DB135;
+}
+
+.footer{
+  margin-top:48px;
+  padding-top:8px;
+  border-top:1px solid var(--border);
+  font-size:16px;
+  color:var(--muted);
+}
+
+.footer-tagline{
+  font-size:13px;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  opacity:.45;
+  text-align:center;
+  margin-top:14px;
+}
+
+@media(max-width:600px){
+  .page{padding:24px 5% 60px;}
+  .eyebrow{font-size:16px;letter-spacing:3px;}
+  .body-text{font-size:16px;}
+  .intro-text{font-size:16px;}
+  .closing-statement{font-size:22px;}
+}
+</style>
+</head>
+<body class="dark">
+
+<nav>
+  <a href="index.html" class="brand">Audit Away LLC</a>
+  <div class="nav-right">
+    <a href="about.html" class="nav-link">Who We Are</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <button class="toggle" id="theme-toggle" type="button">☀️</button>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="eyebrow">Audit &middot; Assess &middot; Advance</div>
+  <div class="page-title">Who We Are</div>
+
+  <div class="intro-block">
+    <p class="intro-text">Audit Away LLC is a Michigan-based quality management consulting firm with over 15 years of executive leadership experience across aerospace, defense, automotive, and medical device manufacturing.</p>
+    <p class="intro-text">Our experience is built from leading quality functions within complex manufacturing environments — including supplier disruption, customer escalation, regulatory compliance, product launch challenges, and operational recovery.</p>
+    <p class="intro-text">We work with organizations to design, implement, and strengthen quality systems that are both compliant and operationally effective.</p>
+    <p class="intro-text">Our focus spans certification, supplier development, corrective action, and end-to-end quality system architecture.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Organizational Alignment Before Compliance</div>
+    <p class="body-text">Many quality failures are not the result of missing procedures, but of misalignment within the organization.</p>
+    <p class="body-text">Effective quality systems require more than documentation. They require shared understanding — from the production floor to executive leadership — of how quality impacts performance, risk, and long-term outcomes.</p>
+    <p class="closing-line">We support organizations in building that alignment, ensuring that standards are understood, applied consistently, and integrated into daily operations.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Metrics and Decision Support</div>
+    <p class="body-text">Most organizations have access to significant amounts of data, but relatively little of it informs decision-making.</p>
+    <p class="body-text">We help define and structure quality metrics that are directly tied to operational and financial outcomes. This includes establishing clear KPIs, improving data integrity, and ensuring that reporting supports timely and informed decisions.</p>
+    <p class="closing-line">The objective is not more data, but better decisions.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The Business Impact of Quality</div>
+    <p class="body-text">Quality performance is closely linked to financial performance.</p>
+    <p class="body-text">Issues such as scrap, rework, warranty claims, supplier failures, and missed launches create measurable impacts on cost, margin, and customer relationships.</p>
+    <p class="body-text">We work with organizations to identify where quality-related costs are being incurred, quantify their impact, and implement strategies to reduce risk and improve performance.</p>
+    <p class="closing-line">Proactive investment in quality is consistently more cost-effective than reactive correction.</p>
+  </div>
+
+  <div class="closing-statement">
+    <span class="quote-mark">&ldquo;</span>Training is the cheapest quality investment a manufacturer can make — and the most expensive one to ignore.<span class="quote-mark">&rdquo;</span>
+  </div>
+
+  <div class="footer">
+    <span>&copy; 2026 Audit Away LLC &nbsp;&middot;&nbsp; Michigan</span>
+  </div>
+
+  <div class="footer-tagline">AI is a tool. We are the judgment.</div>
+
+</div>
+
+<script>
+const themeToggle = document.getElementById('theme-toggle');
+function syncThemeToggle() {
+  const isDark = document.body.classList.contains('dark');
+  themeToggle.textContent = isDark ? '☀️' : '🌙';
+  themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+}
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  syncThemeToggle();
+});
+syncThemeToggle();
+</script>
+</body>
+</html>
