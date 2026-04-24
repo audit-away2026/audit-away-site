@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+Correction note:
+The affiliations CSS was replaced directly in this full HTML file.
+The previous response did not follow the command because it gave partial replacement instructions instead of returning the corrected complete HTML file.
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -81,12 +86,53 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 6
 .cap-num{font-family:'Playfair Display',serif;font-size:12px;font-weight:800;color:var(--green);letter-spacing:1px;flex-shrink:0;width:20px;}
 
 /* AFFILIATIONS */
-.affil-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px;justify-content:center;}
-.affil-item{border:1px solid var(--border);background:#fff;padding:14px 28px;display:flex;align-items:center;justify-content:center;height:90px;width:240px;}
-.affil-item img{max-height:60px;max-width:200px;width:auto;object-fit:contain;opacity:.5;filter:grayscale(25%);transition:opacity .2s;}
-.affil-item img:hover{opacity:.8;}
-.affil-item.ame{background:#111;border:1px solid rgba(255,255,255,.2);}
-.affil-item.ame img{filter:none;opacity:.85;}
+.affil-row{
+  display:flex;
+  gap:40px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:nowrap;
+  width:100%;
+  max-width:1100px;
+  margin:10px auto 0;
+}
+
+.affil-item{
+  flex:1;
+  min-width:0;
+  height:140px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.affil-item a{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.affil-item img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.affil-item.ame{
+  background:#111;
+}
+
+@media(max-width:700px){
+  .affil-row{
+    gap:18px;
+  }
+  .affil-item{
+    height:100px;
+  }
+}
 
 /* CONTACT + FOOTER */
 .contact-row{padding:28px 0 0;display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-start;}
