@@ -7,639 +7,210 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
+:root{--green:#8DB135;--ink:#111;--bg:#f9f9f9;--card:#fff;--muted:#666;--border:rgba(0,0,0,.12);}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;}
 
-:root{
-  --accent:#111;
-  --accent-light:#e0e0e0;
-  --border:rgba(0,0,0,.15);
-  --bg:#f9f9f9;
-  --ink:#111;
-  --muted:#666;
-  --card:#fff;
-  --hero-bg:#111;
-  --hero-ink:#fff;
-}
-
-body{
-  font-family:'Inter',sans-serif;
-  color:var(--ink);
-  background:var(--bg);
-  margin:0;padding:0;
-  transition:background .3s,color .3s;
-}
-
-body.dark .section-label{ color:#8DB135; }
-body.dark .eyebrow{ color:#8DB135; }
-body.dark .sub{ color:#8DB135; }
-body:not(.dark) .float-label{
-  border:1px solid #8DB135;
-}
-body.dark .float-label{ color:#8DB135; }
-
-body.dark{
-  --bg:#111;
-  --ink:#fff;
-  --muted:#fff;
-  --card:#1e1e1e;
-  --border:rgba(255,255,255,.15);
-  --accent:#fff;
-  --accent-light:rgba(255,255,255,.15);
-  --hero-bg:#000;
-  --hero-ink:#fff;
-}
-
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 5%;
-  border-bottom:1px solid var(--border);
-  position:sticky;top:0;z-index:100;
-  background:var(--bg);
-  transition:background .3s;
-}
-
-.brand{
-  font-family:'Playfair Display',serif;
-  font-size:15px;
-  font-weight:800;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  padding:4px 10px;
-  border-radius:4px;
-  white-space:nowrap;
-  color:var(--ink);
-  text-decoration:none;
-}
-body:not(.dark) .brand{
-  border:2px solid #8DB135;
-}
-
-.nav-right{display:flex;gap:20px;align-items:center;}
-
-.nav-link{
-  font-family:'Inter',sans-serif;
-  font-size:13px;
-  font-weight:600;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--ink);
-  text-decoration:none;
-  opacity:.7;
-  transition:opacity .2s;
-}
+nav{display:flex;justify-content:space-between;align-items:center;padding:14px 6%;border-bottom:1px solid var(--border);background:var(--bg);position:sticky;top:0;z-index:100;}
+.brand{font-family:'Playfair Display',serif;font-size:18px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--ink);text-decoration:none;border:2px solid var(--green);padding:4px 10px;border-radius:3px;}
+.nav-links{display:flex;gap:24px;}
+.nav-link{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ink);text-decoration:none;opacity:.55;transition:opacity .2s;}
 .nav-link:hover{opacity:1;}
-
-.toggle{
-  width:36px;
-  height:36px;
-  border-radius:50%;
-  border:1px solid var(--border);
-  background:var(--card);
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;font-size:18px;color:var(--ink);
-  padding:0;
-  flex-shrink:0;
-}
-
-.hamburger{
-  display:none;
-  flex-direction:column;
-  gap:5px;
-  cursor:pointer;
-  background:none;
-  border:none;
-  padding:4px;
-}
-.hamburger span{
-  display:block;
-  width:24px;
-  height:2px;
-  background:var(--ink);
-  transition:all .3s;
-}
-
-.mobile-menu{
-  display:none;
-  flex-direction:column;
-  background:var(--bg);
-  border-bottom:1px solid var(--border);
-  padding:16px 5%;
-  gap:20px;
-  position:sticky;
-  top:57px;
-  z-index:99;
-}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);}
+.mobile-menu{display:none;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--border);padding:16px 6%;gap:16px;}
 .mobile-menu.open{display:flex;}
-.mobile-menu a{
-  font-family:'Inter',sans-serif;
-  font-size:15px;
-  font-weight:600;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--ink);
-  text-decoration:none;
-  opacity:.8;
+.mobile-menu a{font-size:18px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ink);text-decoration:none;}
+@media(max-width:600px){.nav-links{display:none;}.hamburger{display:flex;}}
+
+/* HERO */
+.hero{padding:52px 6% 48px;border-bottom:1px solid var(--border);text-align:center;display:flex;flex-direction:column;align-items:center;}
+.hero-eyebrow{font-size:18px;letter-spacing:4px;text-transform:uppercase;color:#111;font-weight:600;margin-bottom:26px;}
+.logo-wrap{display:inline-block;margin-bottom:14px;}
+.logo-audit{background:var(--ink);color:#fff;font-family:'Playfair Display',serif;font-size:clamp(50px,9vw,84px);font-weight:800;letter-spacing:4px;padding:12px 20px 9px;line-height:1;display:block;-webkit-font-smoothing:antialiased;}
+.logo-away-row{display:flex;align-items:stretch;}
+.logo-bar{width:5px;background:var(--green);flex-shrink:0;}
+.logo-away-inner{padding:7px 20px 5px 15px;}
+.logo-away-inner span{font-family:'Playfair Display',serif;font-size:clamp(50px,9vw,84px);font-weight:800;letter-spacing:4px;line-height:1;display:block;color:var(--ink);-webkit-font-smoothing:antialiased;}
+.hero-sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--green);font-weight:500;padding-top:14px;border-top:1px solid var(--border);display:inline-block;margin-bottom:22px;}
+.hero-desc{font-size:18px;line-height:1.8;color:#111;max-width:560px;text-align:center;}
+
+/* STATS */
+.stats-band{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border);background:#111;}
+.stat{padding:28px 24px;border-right:1px solid rgba(255,255,255,.1);text-align:center;}
+.stat:last-child{border-right:none;}
+.stat-num{font-family:'Inter',sans-serif;font-size:40px;font-weight:700;line-height:1;color:#fff;}
+.stat-num sup{font-size:26px;color:var(--green);font-weight:700;}
+.stat-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#fff;font-weight:700;margin-top:8px;line-height:1.5;}
+.stat-sub{font-size:18px;color:rgba(255,255,255,.6);margin-top:4px;line-height:1.5;}
+@media(max-width:680px){
+  .stats-band{grid-template-columns:1fr 1fr;}
+  .stat:nth-child(2){border-right:none;}
+  .stat:nth-child(3){border-top:1px solid rgba(255,255,255,.1);}
+  .stat:nth-child(4){border-top:1px solid rgba(255,255,255,.1);border-right:none;}
 }
 
-@media(max-width:640px){
-  .nav-links{display:none;}
-  .hamburger{display:flex;}
-}
+/* PAGE */
+.page{padding:0 6%;max-width:860px;margin:0 auto;}
+.section{padding:40px 0;border-bottom:1px solid var(--border);text-align:left;display:flex;flex-direction:column;align-items:flex-start;width:100%;}
+.section-label{font-size:18px;letter-spacing:3px;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:14px;}
+.body-text{font-size:18px;line-height:1.85;color:#111;max-width:580px;margin-bottom:10px;text-align:left;}
+.closing-line{font-size:18px;line-height:1.85;color:#111;max-width:580px;margin-bottom:10px;text-align:left;}
 
-.page{
-  max-width:100%;
-  margin:0;
-  padding:40px 6% 0;
-  box-sizing:border-box;
-}
+/* HOW WE WORK */
+.step-row{display:flex;align-items:flex-start;gap:22px;padding:18px 0;border-bottom:1px solid var(--border);width:100%;max-width:580px;text-align:left;}
+.step-row:first-of-type{padding-top:0;}
+.step-row:last-of-type{border-bottom:none;padding-bottom:0;}
+.step-icon{width:48px;height:48px;border-radius:50%;background:var(--ink);flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.step-icon svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.step-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:var(--ink);margin-bottom:4px;-webkit-font-smoothing:antialiased;}
+.step-desc{font-size:18px;line-height:1.7;color:#111;max-width:460px;}
 
-.eyebrow{
-  font-size:18px;
-  letter-spacing:5px;
-  text-transform:uppercase;
-  color:var(--muted);
-  padding:0 0 18px;
-  line-height:1.7;
-  border-bottom:1px solid var(--border);
-  margin-bottom:30px;
-  font-weight:500;
-}
+/* CAPABILITIES */
+.section.dark-section{display:none;}
+.dark-band{background:#111;padding:40px 6%;border-bottom:1px solid rgba(255,255,255,.1);text-align:center;display:flex;flex-direction:column;align-items:center;}
+.dark-band .section-label{color:var(--green);font-size:18px;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:14px;}
+.dark-band .cap-list li{color:#fff;border-bottom:1px solid rgba(255,255,255,.1);}
+.dark-band .cap-list li:last-child{border-bottom:none;}
+.dark-band .affil-item{border:1px solid rgba(255,255,255,.2);background:#222;}
+.dark-band .affil-item img{opacity:.7;}
+.cap-list{list-style:none;margin-top:10px;max-width:580px;width:100%;text-align:left;}
+.cap-list li{display:flex;align-items:baseline;gap:16px;padding:8px 0;border-bottom:1px solid var(--border);font-size:18px;color:var(--ink);line-height:1.4;}
+.cap-list li:last-child{border-bottom:none;}
+.cap-num{font-family:'Playfair Display',serif;font-size:12px;font-weight:800;color:var(--green);letter-spacing:1px;flex-shrink:0;width:20px;}
 
-.logo-wrap{
-  margin-bottom:32px;
-  display:inline-block;
-}
+/* AFFILIATIONS */
+.affil-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px;justify-content:center;}
+.affil-item{border:1px solid var(--border);background:#fff;padding:5px 9px;display:flex;align-items:center;justify-content:center;height:40px;width:110px;}
+.affil-item img{max-height:24px;max-width:94px;width:auto;object-fit:contain;opacity:.5;filter:grayscale(25%);transition:opacity .2s;}
+.affil-item img:hover{opacity:.8;}
+.affil-item.ame img{filter:invert(1) grayscale(25%);}
 
-.logo-audit{
-  background:var(--hero-bg);
-  color:var(--hero-ink);
-  font-family:'Playfair Display',serif;
-  font-size:clamp(58px,17vw,110px);
-  font-weight:800;
-  letter-spacing:4px;
-  padding:16px 24px 12px;
-  line-height:1;
-  display:block;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  text-rendering:optimizeLegibility;
-  transform:translateZ(0);
-  backface-visibility:hidden;
-}
-
-.logo-away-row{
-  display:flex;
-  align-items:stretch;
-}
-
-.logo-bar{
-  width:5px;
-  background:var(--ink);
-  flex-shrink:0;
-}
-
-.logo-away-inner{
-  padding:10px 24px 6px 20px;
-}
-
-.logo-away-inner span{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(58px,17vw,110px);
-  font-weight:800;
-  letter-spacing:4px;
-  line-height:1;
-  display:block;
-  color:var(--ink);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  text-rendering:optimizeLegibility;
-  transform:translateZ(0);
-  backface-visibility:hidden;
-}
-
-.sub{
-  font-family:'Inter',sans-serif;
-  font-size:16px;
-  letter-spacing:5px;
-  margin-top:10px;
-  padding-top:9px;
-  border-top:1px solid var(--border);
-  color:var(--muted);
-  text-transform:uppercase;
-  font-weight:600;
-}
-
-.hero-desc{
-  font-size:clamp(20px,2.3vw,26px);
-  font-weight:400;
-  line-height:1.8;
-  margin-bottom:36px;
-  color:var(--ink);
-}
-
-.stats-bar{
-  border-top:2px solid var(--ink);
-  padding-top:28px;
-  margin-bottom:24px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:28px 24px;
-}
-
-.stat-num{
-  font-size:60px;
-  font-weight:700;
-  line-height:1;
-  letter-spacing:-1px;
-}
-
-.stat-desc{
-  font-size:14px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin:6px 0 8px;
-  font-weight:600;
-}
-
-.stat-sub{
-  font-size:16px;
-  color:var(--muted);
-  line-height:1.6;
-  font-weight:400;
-}
-
-.section{
-  margin-bottom:40px;
-}
-
-.section-label{
-  font-size:16px;
-  font-weight:700;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:var(--ink);
-  margin-bottom:18px;
-}
-
-.cap-card{
-  border:1px solid var(--border);
-  background:var(--card);
-  padding:20px 20px 16px;
-  position:relative;
-}
-
-.float-label{
-  position:absolute;
-  top:-12px;
-  left:50%;
-  transform:translateX(-50%);
-  background:var(--bg);
-  border:1px solid var(--border);
-  padding:4px 16px;
-  border-radius:20px;
-  font-size:17px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--ink);
-  white-space:nowrap;
-  font-weight:600;
-}
-
-.cap-list{
-  list-style:disc;
-  padding-left:18px;
-  margin-top:4px;
-}
-
-.cap-list li{
-  font-size:20px;
-  font-weight:400;
-  line-height:1.65;
-  margin:8px 0;
-}
-
-.cap-list li::marker{color:var(--ink);}
-
-.sme-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:7px;
-}
-
-.sme-item{
-  border:1px solid var(--border);
-  padding:9px 13px;
-  font-size:16px;
-  font-weight:400;
-  line-height:1.5;
-  background:var(--card);
-  color:var(--ink);
-}
-
-.affil-strip{
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  gap:7px;
-  width:100%;
-  margin-top:8px;
-}
-
-.affil-item{
-  border:1px solid var(--border);
-  padding:16px 14px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:10px;
-  min-height:40px;
-  background:var(--card);
-}
-
-.affil-name{
-  font-size:13px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--ink);
-  font-weight:700;
-  line-height:1.4;
-}
-
-.affil-desc{
-  font-size:15px;
-  line-height:1.5;
-  color:var(--muted);
-}
-
-.affil-item.wim-logo{
-  padding:12px;
-  background:#fff;
-}
-
-.affil-item.wim-logo img{
-  display:block;
-  width:100%;
-  height:auto;
-}
-
-.affil-item.logo-card{
-  padding:12px;
-  background:#fff;
-}
-
-.affil-item.logo-card img{
-  display:block;
-  width:100%;
-  height:auto;
-}
-
-.affil-item.ame-logo{
-  background:#000;
-}
-
-.sme-item a,
-.affil-item a,
-.contact-email a{
-  color:inherit;
-  text-decoration:underline;
-  text-decoration-color:#8DB135;
-  text-underline-offset:3px;
-}
-
-.contact-bar{
-  margin-top:28px;
-  padding-top:18px;
-  border-top:1px solid var(--border);
-  display:flex;
-  align-items:baseline;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.contact-label{
-  font-size:14px;
-  font-weight:700;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:var(--muted);
-  padding:3px 10px;
-  border-radius:4px;
-}
-
-body:not(.dark) .contact-label{
-  border:2px solid #8DB135;
-}
-
-.contact-email a{
-  font-weight:500;
-  font-size:18px;
-}
-
-.footer{
-  margin-top:10px;
-  padding-top:8px;
-  border-top:1px solid var(--border);
-  font-size:16px;
-  color:var(--muted);
-}
-
-.footer-tagline{
-  font-size:13px;
-  letter-spacing:2.5px;
-  text-transform:uppercase;
-  opacity:.45;
-  text-align:center;
-  margin-top:14px;
-}
-
-@media(min-width:860px){
-  .page{max-width:100%;padding:40px 6% 60px;}
-  .sme-grid{grid-template-columns:1fr 1fr 1fr;}
-  .stats-bar{grid-template-columns:repeat(4,1fr);}
-  .stat-num{font-size:72px;}
-  .logo-audit{font-size:clamp(80px,10vw,120px);}
-  .logo-away-inner span{font-size:clamp(80px,10vw,120px);}
-}
-
-@media(max-width:600px){
-  .stats-bar{grid-template-columns:1fr 1fr;}
-  .sme-grid{grid-template-columns:1fr 1fr;}
-  .affil-strip{grid-template-columns:1fr;}
-  .page{padding:24px 5% 0;}
-  .hero-desc{font-size:20px;}
-  .stat-num{font-size:44px;}
-  .stat-desc{font-size:13px;letter-spacing:1.5px;}
-  .stat-sub{font-size:15px;}
-  .section-label{font-size:17px;}
-  .cap-list li{font-size:18px;}
-  .sme-item{font-size:15px;}
-  .eyebrow{font-size:15px;letter-spacing:3px;}
-  .sub{font-size:14px;letter-spacing:3px;}
-  .float-label{font-size:15px;}
-  .contact-email a{font-size:17px;}
-  .footer{font-size:15px;}
-}
-
-.sme-item{ border:1px solid #000 !important; }
-body.dark .sme-item{ border:1px solid #fff !important; }
-body.dark .contact-label{ color:#8DB135; }
+/* CONTACT + FOOTER */
+.contact-row{padding:28px 0 0;display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-start;}
+.contact-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#111;border:1.5px solid var(--green);padding:3px 10px;border-radius:3px;}
+.contact-email{font-size:18px;font-weight:500;}
+.contact-email a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--green);}
+footer{padding:14px 0 26px;display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:8px;margin-top:2px;}
+.footer-copy{font-size:12px;color:#111;}
+.footer-tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#111;opacity:.4;}
 </style>
 </head>
-<body class="dark">
+<body>
 
 <nav>
-  <div class="brand">Audit Away LLC</div>
-  <div class="nav-right">
-    <div class="nav-links" style="display:flex;gap:20px;align-items:center;">
-      <a href="about.html" class="nav-link">Who We Are</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </div>
-    <button class="toggle" id="theme-toggle" type="button">🌙</button>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+  <a href="index.html" class="brand">Audit Away LLC</a>
+  <div class="nav-links">
+    <a href="about.html" class="nav-link">About Us</a>
+    <a href="contact.html" class="nav-link">Contact</a>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
-  <a href="about.html">Who We Are</a>
+  <a href="about.html">About Us</a>
   <a href="contact.html">Contact</a>
 </div>
 
-<div class="page">
-
-  <div class="eyebrow">
-    Audit. Assess. Advance.
-  </div>
-
+<div class="hero">
+  <div class="hero-eyebrow">Audit &middot; Assess &middot; Advance</div>
   <div class="logo-wrap">
     <div class="logo-audit">AUDIT</div>
     <div class="logo-away-row">
       <div class="logo-bar"></div>
-      <div class="logo-away-inner">
-        <span>AWAY</span>
-        <div class="sub">Quality &nbsp;&middot;&nbsp; Compliance &nbsp;&middot;&nbsp; Integrity</div>
-      </div>
+      <div class="logo-away-inner"><span>AWAY</span></div>
+    </div>
+  </div>
+  <div class="hero-sub">Quality &nbsp;&middot;&nbsp; Compliance &nbsp;&middot;&nbsp; Integrity</div>
+  <p class="hero-desc">Enterprise-grade quality management consulting for aerospace, defense, and advanced manufacturing — backed by 20+ years of proven results.</p>
+</div>
+
+<div class="stats-band">
+  <div class="stat"><div class="stat-num">20<sup>+</sup></div><div class="stat-label">Years of Industry Experience</div><div class="stat-sub">Aerospace &middot; Defense &middot; Automotive &middot; Medical</div></div>
+  <div class="stat"><div class="stat-num">500<sup>+</sup></div><div class="stat-label">Stakeholders Trained</div><div class="stat-sub">Compliance &amp; quality systems</div></div>
+  <div class="stat"><div class="stat-num">$500M<sup>+</sup></div><div class="stat-label">Programs Supported</div><div class="stat-sub">Certification programs &amp; operations</div></div>
+  <div class="stat"><div class="stat-num">8<sup>+</sup></div><div class="stat-label">Active Certifications</div><div class="stat-sub">Industry-recognized credentials across quality, engineering &amp; compliance</div></div>
+</div>
+
+<div class="page">
+
+  <div class="section">
+    <div class="section-label">How We Work</div>
+    <div class="step-row">
+      <div class="step-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
+      <div><div class="step-title">Audit</div><p class="step-desc">We take a close look at your current data, reporting, and processes to understand exactly where things stand.</p></div>
+    </div>
+    <div class="step-row">
+      <div class="step-icon"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
+      <div><div class="step-title">Assess</div><p class="step-desc">We identify gaps, inefficiencies, and opportunities so you know what's working — and what isn't.</p></div>
+    </div>
+    <div class="step-row">
+      <div class="step-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/></svg></div>
+      <div><div class="step-title">Advance</div><p class="step-desc">We provide clear, practical recommendations you can implement immediately to move forward with confidence.</p></div>
     </div>
   </div>
 
-  <div class="hero-desc">
-    Enterprise-grade quality management consulting for aerospace, defense, and advanced manufacturing &mdash; backed by 20+ years of proven results.
-  </div>
+</div>
 
-  <div class="stats-bar">
-    <div class="stat-block">
-      <div class="stat-num">20<span style="color:#8DB135;">+</span></div>
-      <div class="stat-desc">Years of Industry Experience</div>
-      <div class="stat-sub">Aerospace &middot; Defense &middot; Automotive &middot; Medical</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num">200<span style="color:#8DB135;">+</span></div>
-      <div class="stat-desc">Stakeholders Trained</div>
-      <div class="stat-sub">Compliance &amp; quality systems</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num">$500M<span style="color:#8DB135;">+</span></div>
-      <div class="stat-desc">Programs Supported</div>
-      <div class="stat-sub">Certification programs &amp; operations</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num">7<span style="color:#8DB135;">+</span></div>
-      <div class="stat-desc">Active Certifications</div>
-      <div class="stat-sub">Industry-recognized credentials across quality, engineering &amp; compliance</div>
-    </div>
+<div class="dark-band">
+  <div class="section-label">Core Capabilities</div>
+  <ol class="cap-list">
+    <li>Quality Management Systems (QMS)</li>
+    <li>AS9100 &amp; IATF 16949 Implementation</li>
+    <li>Corrective Action (CAPA) Programs</li>
+    <li>Supplier Quality Development</li>
+    <li>Workforce Training &amp; Audit Readiness</li>
+    <li>ITAR &amp; Export Compliance</li>
+    <li>Certification &amp; Compliance Strategy</li>
+    <li>ERP &amp; QMS Integration</li>
+  </ol>
+</div>
+
+<div class="page">
+
+  <div class="section">
+    <div class="section-label">Metrics &amp; Decision Support</div>
+    <p class="body-text">Most organizations have access to significant amounts of data, but relatively little of it informs decision-making.</p>
+    <p class="body-text">We help define and structure quality metrics that are directly tied to operational and financial outcomes. This includes establishing clear KPIs, improving data integrity, and ensuring that reporting supports timely and informed decisions.</p>
+    <p class="closing-line"><strong>The objective is not more data, but better decisions.</strong></p>
   </div>
 
   <div class="section">
-    <div class="cap-card">
-      <div class="float-label">Core Capabilities</div>
-      <ul class="cap-list">
-        <li>Quality Management Systems (QMS)</li>
-        <li>AS9100 &amp; IATF 16949 Implementation</li>
-        <li>ITAR &amp; Export Compliance</li>
-        <li>Supplier Quality Development</li>
-        <li>Corrective Action (CAPA) Programs</li>
-        <li>ERP &amp; QMS Integration</li>
-        <li>Workforce Training &amp; Audit Readiness</li>
-      </ul>
-    </div>
+    <div class="section-label">The Business Impact of Quality</div>
+    <p class="body-text">Quality performance is closely linked to financial performance.</p>
+    <p class="body-text">Issues such as scrap, rework, warranty claims, supplier failures, and missed launches create measurable impacts on cost, margin, and customer relationships.</p>
+    <p class="body-text">We work with organizations to identify where quality-related costs are being incurred, quantify their impact, and implement strategies to reduce risk and improve performance.</p>
+    <p class="closing-line"><strong>Proactive investment in quality is consistently more cost-effective than reactive correction.</strong></p>
   </div>
 
-  <div class="section">
-    <div class="section-label">Subject Matter Expert</div>
-    <div class="sme-grid">
-      <div class="sme-item"><a href="https://www.pmddtc.state.gov/ddtc_public?id=ddtc_public_portal_itar_landing" target="_blank" rel="noopener noreferrer">ITAR &amp; Export Control</a></div>
-      <div class="sme-item"><a href="https://environment.ec.europa.eu/topics/waste-and-recycling/rohs-directive_en" target="_blank" rel="noopener noreferrer">EU REACH &amp; RoHS Directives</a></div>
-      <div class="sme-item"><a href="https://www.state.gov/conflict-minerals" target="_blank" rel="noopener noreferrer">Conflict Minerals &mdash; 3TG Reporting</a></div>
-      <div class="sme-item"><a href="https://public.mdsystem.com/en/web/imds-public-pages" target="_blank" rel="noopener noreferrer">IMDS Reporting</a></div>
-      <div class="sme-item"><a href="https://ww2.arb.ca.gov/about" target="_blank" rel="noopener noreferrer">EPA &amp; CARB Regulatory Affairs</a></div>
-      <div class="sme-item"><a href="https://www.faa.gov/airports/airport_safety/fod" target="_blank" rel="noopener noreferrer">FOD Prevention Program</a></div>
-      <div class="sme-item">Supplier Quality Development</div>
-      <div class="sme-item">CAPA &amp; Root Cause Analysis</div>
-      <div class="sme-item">ERP Quality Integration</div>
-      <div class="sme-item">Cleanroom Operations &mdash; ISO Class 5</div>
-      <div class="sme-item">FDA Regulatory Compliance</div>
-      <div class="sme-item">DFARS Compliance</div>
-    </div>
+</div>
+
+<div class="dark-band">
+  <div class="section-label">Industry Affiliations</div>
+  <div class="affil-row">
+    <div class="affil-item"><a href="https://www.sme.org" target="_blank" rel="noopener"><img src="sme-member.jpg" alt="SME Member"></a></div>
+    <div class="affil-item"><a href="https://www.womeninmanufacturing.org" target="_blank" rel="noopener"><img src="wim-member.jpg" alt="Women in Manufacturing"></a></div>
+    <div class="affil-item ame"><a href="https://www.ame.org" target="_blank" rel="noopener"><img src="AME_PRIMARY_LOGO_WHITE.svg" alt="AME"></a></div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="contact-row">
+    <span class="contact-label">Inquiries</span>
+    <span class="contact-email"><a href="mailto:info@auditaway.com">info@auditaway.com</a></span>
   </div>
 
-  <div class="section">
-    <div class="section-label">Industry Affiliations</div>
-    <div class="affil-strip">
-      <div class="affil-item logo-card">
-        <a href="https://www.sme.org" target="_blank" rel="noopener noreferrer" aria-label="SME member logo">
-          <img src="sme-member.jpg" alt="SME member logo">
-        </a>
-      </div>
-      <div class="affil-item wim-logo">
-        <a href="https://www.womeninmanufacturing.org" target="_blank" rel="noopener noreferrer" aria-label="Women in Manufacturing proud member logo">
-         <img src="wim-member.jpg" alt="Proud Member Women in Manufacturing logo">
-        </a>
-      </div>
-      <div class="affil-item logo-card ame-logo">
-        <a href="https://www.ame.org" target="_blank" rel="noopener noreferrer" aria-label="AME logo">
-        <img src="ame-symbol.jpg" alt="Association for Manufacturing Excellence logo">
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="contact-bar">
-    <div class="contact-label">Inquiries</div>
-    <div class="contact-email"><a href="mailto:info@auditaway.com">info@auditaway.com</a></div>
-  </div>
-
-  <div class="footer">
-    <span>&copy; 2026 Audit Away LLC &nbsp;&middot;&nbsp; Michigan</span>
-  </div>
-
-  <div class="footer-tagline">AI is a tool. We are the judgment.</div>
+  <footer>
+    <span class="footer-copy">&copy; 2026 Audit Away LLC &middot; Michigan</span>
+    <span class="footer-tag">AI is a tool. We are the judgment.</span>
+  </footer>
 
 </div>
 
 <script>
-const themeToggle = document.getElementById('theme-toggle');
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobile-menu');
-
-hamburger.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
-});
-
-mobileMenu.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => mobileMenu.classList.remove('open'));
-});
-
-function syncThemeToggle() {
-  const isDark = document.body.classList.contains('dark');
-  themeToggle.textContent = isDark ? '☀️' : '🌙';
-  themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
-}
-
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  syncThemeToggle();
-});
-
-syncThemeToggle();
+const h=document.getElementById('hamburger'),m=document.getElementById('mobile-menu');
+h.addEventListener('click',()=>m.classList.toggle('open'));
+m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>m.classList.remove('open')));
 </script>
+</body>
+</html>
