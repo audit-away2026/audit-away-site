@@ -239,26 +239,42 @@ footer{padding:14px 0 26px;display:flex;align-items:center;justify-content:flex-
 </div>
 
 <div class="dark-band" id="affiliations" style="align-items:center;text-align:center;">
+  <div class="section-label">Affiliations</div>
   <div class="affil-row">
-    <div class="affil-item"><a href="https://www.sme.org" target="_blank" rel="noopener"><img src="sme-member.jpg" alt="SME Member"></a></div>
-    <div class="affil-item"><a href="https://www.womeninmanufacturing.org" target="_blank" rel="noopener"><img src="wim-member.jpg" alt="Women in Manufacturing"></a></div>
-    <div class="affil-item ame"><a href="https://www.ame.org" target="_blank" rel="noopener"><img src="ame-member.jpg" alt="AME"></a></div>
+    <div class="affil-item">
+      <a href="https://www.sme.org" target="_blank" rel="noopener">
+        <img src="sme-member.jpg" alt="SME Member">
+      </a>
+    </div>
+    <div class="affil-item">
+      <a href="https://www.womeninmanufacturing.org" target="_blank" rel="noopener">
+        <img src="wim-member.jpg" alt="Women in Manufacturing">
+      </a>
+    </div>
+    <div class="affil-item ame">
+      <a href="https://www.ame.org" target="_blank" rel="noopener">
+        <img src="ame-member.jpg" alt="AME">
+      </a>
+    </div>
   </div>
 </div>
-
 <div class="page">
   <div class="contact-row">
     <span class="contact-label">Inquiries</span>
     <span class="contact-email"><a href="mailto:info@auditaway.com">info@auditaway.com</a></span>
+  </div>
 
-    <footer>
+  <footer>
     <span class="footer-copy">&copy; 2026 Audit Away LLC &middot; Michigan</span>
     <span class="footer-tag">AI is a tool. We are the judgment.</span>
   </footer>
+</div>
 <script>
 const h=document.getElementById('hamburger'),m=document.getElementById('mobile-menu');
-h.addEventListener('click',()=>m.classList.toggle('open'));
-m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>m.classList.remove('open')));
+if(h && m){
+  h.addEventListener('click',()=>m.classList.toggle('open'));
+  m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>m.classList.remove('open')));
+}
 </script>
 </body>
 </html>
