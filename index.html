@@ -24,7 +24,8 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 6
 
 /* HERO */
 .hero{padding:52px 6% 48px;border-bottom:1px solid var(--border);text-align:center;display:flex;flex-direction:column;align-items:center;}
-.hero-eyebrow{font-size:18px;letter-spacing:4px;text-transform:uppercase;color:#111;font-weight:600;margin-bottom:26px;}
+.hero-eyebrow{font-size:18px;letter-spacing:4px;text-transform:uppercase;color:#111;font-weight:600;margin-bottom:26px;white-space:nowrap;text-align:center;}
+@media(max-width:480px){.hero-eyebrow{font-size:13px;letter-spacing:2px;}}
 .logo-wrap{display:inline-block;margin-bottom:14px;}
 .logo-audit{background:var(--ink);color:#fff;font-family:'Playfair Display',serif;font-size:clamp(50px,9vw,84px);font-weight:800;letter-spacing:4px;padding:12px 20px 9px;line-height:1;display:block;-webkit-font-smoothing:antialiased;}
 .logo-away-row{display:flex;align-items:stretch;}
@@ -50,8 +51,12 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 6
 }
 
 /* PAGE */
-.page{padding:0 6%;max-width:860px;margin:0 auto;}
-.section{padding:40px 0;border-bottom:1px solid var(--border);text-align:left;display:flex;flex-direction:column;align-items:flex-start;width:100%;}
+.page{padding:0 6%;display:flex;flex-direction:column;align-items:center;}
+.section{padding:40px 0;border-bottom:1px solid var(--border);text-align:center;display:flex;flex-direction:column;align-items:center;width:100%;max-width:620px;}
+.two-col-section{display:grid;grid-template-columns:1fr 1px 1fr;gap:0 40px;padding:40px 6%;border-bottom:1px solid var(--border);width:100%;}
+.two-col-item{display:flex;flex-direction:column;text-align:left;}
+.two-col-divider{background:var(--border);width:1px;}
+@media(max-width:680px){.two-col-section{grid-template-columns:1fr;}.two-col-divider{display:none;}}
 .section-label{font-size:18px;letter-spacing:3px;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:14px;}
 .body-text{font-size:18px;line-height:1.85;color:#111;max-width:580px;margin-bottom:10px;text-align:left;}
 .closing-line{font-size:18px;line-height:1.85;color:#111;max-width:580px;margin-bottom:10px;text-align:left;}
@@ -67,23 +72,21 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 6
 
 /* CAPABILITIES */
 .section.dark-section{display:none;}
-.dark-band{background:#111;padding:40px 6%;border-bottom:1px solid rgba(255,255,255,.1);text-align:left;display:flex;flex-direction:column;align-items:center;}
-.dark-band .section-label{color:var(--green);font-size:18px;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:14px;}
-.dark-band .cap-list li{color:#fff;border-bottom:1px solid rgba(255,255,255,.1);}
-.dark-band .cap-list li:last-child{border-bottom:none;}
-.dark-band .affil-item{border:1px solid rgba(255,255,255,.2);background:#222;}
-.dark-band .affil-item img{opacity:.7;}
-.cap-list{list-style:none;margin-top:10px;max-width:580px;width:100%;text-align:left;}
-.cap-list li{display:flex;align-items:baseline;gap:16px;padding:8px 0;border-bottom:1px solid var(--border);font-size:18px;color:var(--ink);line-height:1.4;}
-.cap-list li:last-child{border-bottom:none;}
+.dark-band{background:#111;padding:40px 6%;border-bottom:1px solid rgba(255,255,255,.1);text-align:center;display:flex;flex-direction:column;align-items:center;}
+#capabilities{align-items:center;text-align:left;}
+.cap-list{list-style:none;margin:10px 0 0;width:100%;max-width:580px;text-align:left;padding:0;}
+.dark-band .section-label{color:var(--green);font-size:18px;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:14px;text-align:left;width:100%;max-width:580px;}
+.cap-list li{font-size:18px;color:#fff;line-height:1.6;padding:6px 0;border:none;}
+.cap-list li:last-child{border:none;}
 .cap-num{font-family:'Playfair Display',serif;font-size:12px;font-weight:800;color:var(--green);letter-spacing:1px;flex-shrink:0;width:20px;}
 
 /* AFFILIATIONS */
 .affil-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px;justify-content:center;}
-.affil-item{border:1px solid var(--border);background:#fff;padding:5px 9px;display:flex;align-items:center;justify-content:center;height:40px;width:110px;}
-.affil-item img{max-height:24px;max-width:94px;width:auto;object-fit:contain;opacity:.5;filter:grayscale(25%);transition:opacity .2s;}
+.affil-item{border:1px solid var(--border);background:#fff;padding:14px 28px;display:flex;align-items:center;justify-content:center;height:90px;width:240px;}
+.affil-item img{max-height:60px;max-width:200px;width:auto;object-fit:contain;opacity:.5;filter:grayscale(25%);transition:opacity .2s;}
 .affil-item img:hover{opacity:.8;}
-.affil-item.ame img{filter:invert(1) grayscale(25%);}
+.affil-item.ame{background:#111;border:1px solid rgba(255,255,255,.2);}
+.affil-item.ame img{filter:none;opacity:.85;}
 
 /* CONTACT + FOOTER */
 .contact-row{padding:28px 0 0;display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-start;}
@@ -152,7 +155,8 @@ footer{padding:14px 0 26px;display:flex;align-items:center;justify-content:flex-
 
 </div>
 
-<div class="dark-band">
+<div class="dark-band" id="capabilities">
+  <div class="dark-band-inner">
   <div class="section-label">Core Capabilities</div>
   <ol class="cap-list">
     <li>Quality Management Systems (QMS)</li>
@@ -164,33 +168,35 @@ footer{padding:14px 0 26px;display:flex;align-items:center;justify-content:flex-
     <li>Certification &amp; Compliance Strategy</li>
     <li>ERP &amp; QMS Integration</li>
   </ol>
+  </div>
 </div>
-
-<div class="page">
-
-  <div class="section">
-    <div class="section-label">Metrics &amp; Decision Support</div>
-    <p class="body-text">Most organizations have access to significant amounts of data, but relatively little of it informs decision-making.</p>
-    <p class="body-text">We help define and structure quality metrics that are directly tied to operational and financial outcomes. This includes establishing clear KPIs, improving data integrity, and ensuring that reporting supports timely and informed decisions.</p>
-    <p class="closing-line"><strong>The objective is not more data, but better decisions.</strong></p>
-  </div>
-
-  <div class="section">
-    <div class="section-label">The Business Impact of Quality</div>
-    <p class="body-text">Quality performance is closely linked to financial performance.</p>
-    <p class="body-text">Issues such as scrap, rework, warranty claims, supplier failures, and missed launches create measurable impacts on cost, margin, and customer relationships.</p>
-    <p class="body-text">We work with organizations to identify where quality-related costs are being incurred, quantify their impact, and implement strategies to reduce risk and improve performance.</p>
-    <p class="closing-line"><strong>Proactive investment in quality is consistently more cost-effective than reactive correction.</strong></p>
-  </div>
 
 </div>
 
-<div class="dark-band">
-  <div class="section-label">Industry Affiliations</div>
+<div class="two-col-section">
+    <div class="two-col-item">
+      <div class="section-label">Metrics &amp; Decision Support</div>
+      <p class="body-text">Most organizations have access to significant amounts of data, but relatively little of it informs decision-making.</p>
+      <p class="body-text">We help define and structure quality metrics that are directly tied to operational and financial outcomes. This includes establishing clear KPIs, improving data integrity, and ensuring that reporting supports timely and informed decisions.</p>
+      <p class="closing-line"><strong>The objective is not more data, but better decisions.</strong></p>
+    </div>
+    <div class="two-col-divider"></div>
+    <div class="two-col-item">
+      <div class="section-label">The Business Impact of Quality</div>
+      <p class="body-text">Quality performance is closely linked to financial performance.</p>
+      <p class="body-text">Issues such as scrap, rework, warranty claims, supplier failures, and missed launches create measurable impacts on cost, margin, and customer relationships.</p>
+      <p class="body-text">We work with organizations to identify where quality-related costs are being incurred, quantify their impact, and implement strategies to reduce risk and improve performance.</p>
+      <p class="closing-line"><strong>Proactive investment in quality is consistently more cost-effective than reactive correction.</strong></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="dark-band" id="affiliations" style="align-items:center;text-align:center;">
   <div class="affil-row">
     <div class="affil-item"><a href="https://www.sme.org" target="_blank" rel="noopener"><img src="sme-member.jpg" alt="SME Member"></a></div>
     <div class="affil-item"><a href="https://www.womeninmanufacturing.org" target="_blank" rel="noopener"><img src="wim-member.jpg" alt="Women in Manufacturing"></a></div>
-    <div class="affil-item ame"><a href="https://www.ame.org" target="_blank" rel="noopener"><img src="AME_PRIMARY_LOGO_WHITE.svg" alt="AME"></a></div>
+    <div class="affil-item ame"><a href="https://www.ame.org" target="_blank" rel="noopener"><img src="ame-logo.png" alt="AME"></a></div>
   </div>
 </div>
 
