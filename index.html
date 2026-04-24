@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-Correction note:
-The affiliations CSS was replaced directly in this full HTML file.
-The previous response did not follow the command because it gave partial replacement instructions instead of returning the corrected complete HTML file.
--->
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -12,14 +7,15 @@ The previous response did not follow the command because it gave partial replace
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-:root{--green:#8DB135;--ink:#111;--bg:#f9f9f9;--card:#fff;--muted:#666;--border:rgba(0,0,0,.12);}
+:root{--green:#8DB135;--ink:#111;--bg:#f9f9f9;--card:#fff;--muted:#666;--border:rgba(0,0,0,.12);--radius:18px;--section-pad:52px;--section-pad-mobile:38px;--card-pad:28px;}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;}
 
 nav{display:flex;justify-content:space-between;align-items:center;padding:14px 6%;border-bottom:1px solid var(--border);background:var(--bg);position:sticky;top:0;z-index:100;}
-.brand{font-family:'Playfair Display',serif;font-size:18px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--ink);text-decoration:none;border:2px solid var(--green);padding:4px 10px;border-radius:3px;}
+.brand{font-family:'Playfair Display',serif;font-size:18px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--ink);text-decoration:none;border:2px solid var(--green);padding:4px 10px;border-radius:var(--radius);}
 .nav-links{display:flex;gap:24px;}
 .nav-link{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ink);text-decoration:none;opacity:.55;transition:opacity .2s;}
-.nav-link:hover{opacity:1;}
+.nav-link:hover,.nav-link.active{opacity:1;}
+.nav-link.active{border-bottom:2px solid var(--green);}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
 .hamburger span{display:block;width:22px;height:2px;background:var(--ink);}
 .mobile-menu{display:none;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--border);padding:16px 6%;gap:16px;}
@@ -27,10 +23,9 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 6
 .mobile-menu a{font-size:18px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ink);text-decoration:none;}
 @media(max-width:600px){.nav-links{display:none;}.hamburger{display:flex;}}
 
-/* HERO */
-.hero{padding:52px 6% 48px;border-bottom:1px solid var(--border);text-align:center;display:flex;flex-direction:column;align-items:center;}
+/* HERO - same page rhythm as About */
+.hero{padding:52px 6% 48px;border-bottom:1px solid var(--border);text-align:center;display:flex;flex-direction:column;align-items:center;background:var(--bg);}
 .hero-eyebrow{font-size:18px;letter-spacing:4px;text-transform:uppercase;color:#111;font-weight:600;margin-bottom:26px;white-space:nowrap;text-align:center;}
-@media(max-width:480px){.hero-eyebrow{font-size:13px;letter-spacing:2px;}}
 .logo-wrap{display:inline-block;margin-bottom:14px;}
 .logo-audit{background:var(--ink);color:#fff;font-family:'Playfair Display',serif;font-size:clamp(50px,9vw,84px);font-weight:800;letter-spacing:4px;padding:12px 20px 9px;line-height:1;display:block;-webkit-font-smoothing:antialiased;}
 .logo-away-row{display:flex;align-items:stretch;}
@@ -38,7 +33,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 6
 .logo-away-inner{padding:7px 20px 5px 15px;}
 .logo-away-inner span{font-family:'Playfair Display',serif;font-size:clamp(50px,9vw,84px);font-weight:800;letter-spacing:4px;line-height:1;display:block;color:var(--ink);-webkit-font-smoothing:antialiased;}
 .hero-sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--green);font-weight:500;padding-top:14px;border-top:1px solid var(--border);display:inline-block;margin-bottom:22px;}
-.hero-desc{font-size:18px;line-height:1.8;color:#111;max-width:560px;text-align:center;}
+.hero-desc{font-size:18px;line-height:1.8;color:#111;max-width:720px;text-align:center;}
 
 /* STATS */
 .stats-band{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border);background:#111;}
@@ -55,95 +50,198 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 6
   .stat:nth-child(4){border-top:1px solid rgba(255,255,255,.1);border-right:none;}
 }
 
-/* PAGE */
+/* PAGE - copied layout behavior from About */
 .page{padding:0 6%;display:flex;flex-direction:column;align-items:center;}
-.section{padding:40px 0;border-bottom:1px solid var(--border);text-align:center;display:flex;flex-direction:column;align-items:center;width:100%;max-width:620px;}
-.two-col-section{display:grid;grid-template-columns:1fr 1px 1fr;gap:0 40px;padding:40px 6%;border-bottom:1px solid var(--border);width:100%;}
-.two-col-item{display:flex;flex-direction:column;text-align:left;}
-.two-col-divider{background:var(--border);width:1px;}
-@media(max-width:680px){.two-col-section{grid-template-columns:1fr;}.two-col-divider{display:none;}}
+.section{padding:var(--section-pad) 0;border-bottom:1px solid var(--border);width:100%;max-width:980px;text-align:center;display:flex;flex-direction:column;align-items:center;}
 .section-label{font-size:18px;letter-spacing:3px;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:14px;}
-.body-text{font-size:18px;line-height:1.85;color:#111;max-width:580px;margin-bottom:10px;text-align:left;}
-.closing-line{font-size:18px;line-height:1.85;color:#111;max-width:580px;margin-bottom:10px;text-align:left;}
+.body-text{font-size:18px;line-height:1.85;color:#111;max-width:700px;margin-bottom:12px;text-align:left;}
+.closing-line{font-size:18px;line-height:1.85;color:#111;max-width:700px;margin-bottom:10px;text-align:left;}
+.lead-line{font-family:'Playfair Display',serif;font-size:clamp(18px,2.3vw,23px);font-weight:800;color:var(--ink);line-height:1.35;border-left:3px solid var(--green);padding-left:18px;margin:0 0 18px;max-width:700px;text-align:left;-webkit-font-smoothing:antialiased;}
+
+.section.dark-section{background:#111;margin:0 -6%;padding:var(--section-pad) 6%;border-bottom:1px solid rgba(255,255,255,.1);width:calc(100% + 12%);text-align:center;align-items:center;max-width:none;}
+.dark-section .section-label{color:var(--green);}
+.dark-section .section-sub{color:rgba(255,255,255,.72);}
 
 /* HOW WE WORK */
-.step-row{display:flex;align-items:flex-start;gap:22px;padding:18px 0;border-bottom:1px solid var(--border);width:100%;max-width:580px;text-align:left;}
+.step-row{display:flex;align-items:flex-start;gap:22px;padding:18px 0;border-bottom:1px solid var(--border);width:100%;max-width:700px;text-align:left;}
 .step-row:first-of-type{padding-top:0;}
 .step-row:last-of-type{border-bottom:none;padding-bottom:0;}
 .step-icon{width:48px;height:48px;border-radius:50%;background:var(--ink);flex-shrink:0;display:flex;align-items:center;justify-content:center;}
 .step-icon svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
 .step-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:var(--ink);margin-bottom:4px;-webkit-font-smoothing:antialiased;}
-.step-desc{font-size:18px;line-height:1.7;color:#111;max-width:460px;}
+.step-desc{font-size:18px;line-height:1.7;color:#111;max-width:620px;}
 
 /* CAPABILITIES */
-.section.dark-section{display:none;}
-.dark-band{background:#111;padding:40px 6%;border-bottom:1px solid rgba(255,255,255,.1);text-align:center;display:flex;flex-direction:column;align-items:center;}
-#capabilities{align-items:center;text-align:left;}
-.cap-list{list-style:none;margin:10px 0 0;width:100%;max-width:580px;text-align:left;padding:0;}
-.dark-band .section-label{color:var(--green);font-size:18px;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:14px;text-align:left;width:100%;max-width:580px;}
-.cap-list li{font-size:18px;color:#fff;line-height:1.6;padding:6px 0;border:none;}
-.cap-list li:last-child{border:none;}
-.cap-num{font-family:'Playfair Display',serif;font-size:12px;font-weight:800;color:var(--green);letter-spacing:1px;flex-shrink:0;width:20px;}
+#capabilities{
+  background:var(--bg);
+}
 
-/* AFFILIATIONS */
-.affil-row{
-  display:flex;
-  gap:40px;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:nowrap;
+#capabilities > .section-label{
+  display:none;
+}
+
+.cap-card{
   width:100%;
-  max-width:1100px;
-  margin:10px auto 0;
-}
-
-.affil-item{
-  flex:1;
-  min-width:0;
-  height:140px;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.affil-item a{
-  width:100%;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.affil-item img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
-
-.affil-item.ame{
+  max-width:860px;
+  min-height:220px;
   background:#111;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:var(--radius);
+  padding:28px 24px;
+  margin:10px auto 0;
+  box-shadow:none;
 }
 
-@media(max-width:700px){
-  .affil-row{
+.cap-card-title{
+  color:var(--green);
+  font-size:20px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-weight:700;
+  text-align:center;
+  margin-bottom:18px;
+}
+
+.cap-card-body{
+  display:grid;
+  grid-template-columns:210px 1fr;
+  gap:24px;
+  align-items:center;
+}
+
+.cap-icon-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.cap-icon-circle{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:rgba(141,177,53,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.cap-icon-circle svg{
+  width:130px;
+  height:130px;
+  stroke:var(--green);
+  fill:none;
+  stroke-width:1.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.cap-content{
+  border-left:2px solid rgba(141,177,53,.55);
+  padding-left:18px;
+  text-align:left;
+}
+
+.cap-groups{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 28px;
+}
+
+.cap-group-title{
+  color:var(--green);
+  font-size:13px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.cap-group-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.cap-group-list li{
+  font-size:16px;
+  color:#fff;
+  line-height:1.35;
+  padding:9px 0;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+
+.cap-group-list li:first-child{
+  border-top:none;
+}
+
+@media(max-width:760px){
+  .cap-card{
+    padding:24px 18px;
+  }
+
+  .cap-card-body{
+    grid-template-columns:1fr;
     gap:18px;
   }
-  .affil-item{
+
+  .cap-icon-circle{
+    width:140px;
+    height:140px;
+  }
+
+  .cap-icon-circle svg{
+    width:100px;
     height:100px;
+  }
+
+  .cap-content{
+    border-left:none;
+    border-top:2px solid rgba(141,177,53,.55);
+    padding-left:0;
+    padding-top:18px;
+  }
+
+  .cap-groups{
+    grid-template-columns:1fr;
+    gap:22px;
   }
 }
 
-/* CONTACT + FOOTER */
-.contact-row{padding:28px 0 0;display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-start;}
-.contact-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#111;border:1.5px solid var(--green);padding:3px 10px;border-radius:3px;}
+/* TWO COLUMN SECTION */
+.two-col-section{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;gap:0 32px;padding:var(--section-pad) 0;border-bottom:1px solid var(--border);width:100%;max-width:980px;}
+.section-intro{grid-column:1/-1;max-width:700px;margin:0 auto 32px;font-size:22px;font-weight:700;line-height:1.4;text-align:center;color:#111;width:100%;}
+.two-col-item{display:flex;flex-direction:column;text-align:left;}
+.two-col-divider{background:var(--border);width:1px;}
+@media(max-width:900px){
+  .two-col-section{grid-template-columns:1fr;gap:28px;}
+  .two-col-divider{display:none;}
+  .section-intro{grid-column:1/-1;max-width:700px;margin:0 auto 32px;font-size:22px;font-weight:700;line-height:1.4;text-align:center;color:#111;width:100%;}
+}
+
+/* AFFILIATIONS - same max width/card behavior as About proof/cert blocks */
+.affil-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;width:100%;max-width:860px;margin:10px auto 0;background:#111;border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:16px;}
+.affil-item{background:#fff;border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:10px 18px;display:flex;align-items:center;justify-content:center;min-height:96px;}
+.affil-item a{width:100%;display:flex;align-items:center;justify-content:center;}
+.affil-item img{max-width:100%;max-height:72px;width:auto;height:auto;object-fit:contain;display:block;}
+.affil-item.ame{background:#111;}
+@media(max-width:760px){.affil-row{grid-template-columns:1fr;max-width:340px;}}
+
+/* CONTACT + FOOTER - copied from About alignment */
+.contact-row{padding:32px 0 0;display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;}
+.contact-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#111;border:none;padding:3px 10px;border-radius:var(--radius);}
 .contact-email{font-size:18px;font-weight:500;}
 .contact-email a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--green);}
-footer{padding:14px 0 26px;display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:8px;margin-top:2px;}
+footer{padding:14px 0 26px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:2px;}
 .footer-copy{font-size:12px;color:#111;}
 .footer-tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#111;opacity:.4;}
+
+@media(max-width:480px){
+  .hero-eyebrow{font-size:12px;letter-spacing:1.5px;white-space:normal;line-height:1.4;max-width:320px;}
+  .hero-sub{font-size:10px;letter-spacing:1.5px;line-height:1.5;max-width:320px;}
+}
 </style>
 </head>
+
 <body>
 
 <nav>
@@ -157,6 +255,7 @@ footer{padding:14px 0 26px;display:flex;align-items:center;justify-content:flex-
   </button>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
   <a href="about.html">About Us</a>
   <a href="contact.html">Contact</a>
 </div>
@@ -199,66 +298,104 @@ footer{padding:14px 0 26px;display:flex;align-items:center;justify-content:flex-
     </div>
   </div>
 
-</div>
+  <div class="section" id="capabilities">
+    <div class="cap-card">
+      <div class="cap-card-title">Core Capabilities</div>
+      <div class="cap-card-body">
+        <div class="cap-icon-wrap">
+          <div class="cap-icon-circle" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <rect x="17" y="10" width="30" height="44" rx="4"></rect>
+              <path d="M23 23l4 4 7-8"></path>
+              <path d="M38 24h8"></path>
+              <path d="M23 34l4 4 7-8"></path>
+              <path d="M38 35h8"></path>
+              <path d="M23 45l4 4 7-8"></path>
+              <path d="M38 46h8"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="cap-content">
+          <div class="cap-groups">
+            <div class="cap-group">
+              <div class="cap-group-title">QMS &amp; Compliance</div>
+              <ul class="cap-group-list">
+                <li>Quality Management Systems (QMS)</li>
+                <li>AS9100 &amp; IATF 16949 Implementation</li>
+                <li>Corrective Action (CAPA) Programs</li>
+                <li>Supplier Quality Development</li>
+                <li>ITAR &amp; Export Compliance</li>
+                <li>ERP &amp; QMS Integration</li>
+              </ul>
+            </div>
 
-<div class="dark-band" id="capabilities">
-  <div class="dark-band-inner">
-  <div class="section-label">Core Capabilities</div>
-  <ol class="cap-list">
-    <li>Quality Management Systems (QMS)</li>
-    <li>AS9100 &amp; IATF 16949 Implementation</li>
-    <li>Corrective Action (CAPA) Programs</li>
-    <li>Supplier Quality Development</li>
-    <li>Workforce Training &amp; Audit Readiness</li>
-    <li>ITAR &amp; Export Compliance</li>
-    <li>Certification &amp; Compliance Strategy</li>
-    <li>ERP &amp; QMS Integration</li>
-  </ol>
+            <div class="cap-group">
+              <div class="cap-group-title">Workforce Training &amp; Alignment</div>
+              <ul class="cap-group-list">
+                <li>Workforce Training &amp; Audit Readiness</li>
+                <li>Process-Based Training</li>
+                <li>Role-Based Quality Training</li>
+                <li>Leadership &amp; Supervisor Alignment</li>
+                <li>Audit Preparation Training</li>
+                <li>Corrective Action Training</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
-</div>
+  <div class="two-col-section">
+    <p class="section-intro">We focus on areas that drive performance</p>
 
-<div class="two-col-section">
     <div class="two-col-item">
       <div class="section-label">Metrics &amp; Decision Support</div>
-      <p class="body-text">Most organizations have access to significant amounts of data, but relatively little of it informs decision-making.</p>
-      <p class="body-text">We help define and structure quality metrics that are directly tied to operational and financial outcomes. This includes establishing clear KPIs, improving data integrity, and ensuring that reporting supports timely and informed decisions.</p>
-      <p class="closing-line"><strong>The objective is not more data, but better decisions.</strong></p>
+      <p class="lead-line">The objective isn’t more data — it’s better decisions.</p>
+      <p class="body-text">Most organizations have no shortage of data, but little of it drives action.</p>
+      <p class="body-text">We define and structure quality metrics that connect directly to operational and financial outcomes — establishing meaningful KPIs, improving data integrity, and ensuring reporting supports timely, informed decisions.</p>
     </div>
+
     <div class="two-col-divider"></div>
+
     <div class="two-col-item">
       <div class="section-label">The Business Impact of Quality</div>
-      <p class="body-text">Quality performance is closely linked to financial performance.</p>
-      <p class="body-text">Issues such as scrap, rework, warranty claims, supplier failures, and missed launches create measurable impacts on cost, margin, and customer relationships.</p>
-      <p class="body-text">We work with organizations to identify where quality-related costs are being incurred, quantify their impact, and implement strategies to reduce risk and improve performance.</p>
-      <p class="closing-line"><strong>Proactive investment in quality is consistently more cost-effective than reactive correction.</strong></p>
+      <p class="lead-line">Preventing issues costs less than correcting them.</p>
+      <p class="body-text">Quality performance is directly tied to financial performance.</p>
+      <p class="body-text">Scrap, rework, warranty claims, supplier failures, and missed launches create measurable impacts on cost, margin, and customer relationships.</p>
+    </div>
+
+    <div class="two-col-divider"></div>
+
+    <div class="two-col-item">
+      <div class="section-label">Workforce Training &amp; Alignment</div>
+      <p class="lead-line">Training is only valuable when it drives consistent execution.</p>
+      <p class="body-text">Most organizations provide training, but it is not always retained, reinforced, or aligned with operational requirements.</p>
+      <p class="body-text">We design and implement training programs that connect directly to quality standards, operational processes, and performance expectations.</p>
     </div>
   </div>
 
-</div>
-
-<div class="dark-band" id="affiliations" style="align-items:center;">
-  <div class="section-label">Affiliations</div>
-  <div class="affil-row">
-    <div class="affil-item">
-      <a href="https://www.sme.org" target="_blank" rel="noopener">
-        <img src="sme-member.jpg" alt="SME Member">
-      </a>
-    </div>
-    <div class="affil-item">
-      <a href="https://www.womeninmanufacturing.org" target="_blank" rel="noopener">
-        <img src="wim-member.jpg" alt="Women in Manufacturing">
-      </a>
-    </div>
-    <div class="affil-item ame">
-      <a href="https://www.ame.org" target="_blank" rel="noopener">
-        <img src="ame-member.jpg" alt="AME">
-      </a>
+  <div class="section dark-section" id="affiliations">
+    <div class="section-label">Affiliations</div>
+    <div class="affil-row">
+      <div class="affil-item">
+        <a href="https://www.sme.org" target="_blank" rel="noopener">
+          <img src="sme-member.jpg" alt="SME Member">
+        </a>
+      </div>
+      <div class="affil-item">
+        <a href="https://www.womeninmanufacturing.org" target="_blank" rel="noopener">
+          <img src="wim-member.jpg" alt="Women in Manufacturing">
+        </a>
+      </div>
+      <div class="affil-item ame">
+        <a href="https://www.ame.org" target="_blank" rel="noopener">
+          <img src="ame-member.jpg" alt="AME">
+        </a>
+      </div>
     </div>
   </div>
-</div>
-<div class="page">
+
   <div class="contact-row">
     <span class="contact-label">Inquiries</span>
     <span class="contact-email"><a href="mailto:info@auditaway.com">info@auditaway.com</a></span>
@@ -268,7 +405,9 @@ footer{padding:14px 0 26px;display:flex;align-items:center;justify-content:flex-
     <span class="footer-copy">&copy; 2026 Audit Away LLC &middot; Michigan</span>
     <span class="footer-tag">AI is a tool. We are the judgment.</span>
   </footer>
+
 </div>
+
 <script>
 const h=document.getElementById('hamburger'),m=document.getElementById('mobile-menu');
 if(h && m){
