@@ -8,6 +8,7 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{--green:#8DB135;--ink:#111;--bg:#f9f9f9;--card:#fff;--muted:#666;--border:rgba(0,0,0,.12);--radius:18px;}
+html,body{overflow-x:hidden;}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;}
 
 nav{display:flex;justify-content:space-between;align-items:center;padding:14px 6%;border-bottom:1px solid var(--border);background:var(--bg);position:sticky;top:0;z-index:100;}
@@ -54,31 +55,8 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 6
 .proof-copy{font-size:16px;line-height:1.65;color:#222;}
 @media(max-width:760px){.proof-grid{grid-template-columns:1fr;}}
 
-.cert-card{
-  width:100%;
-  max-width:860px;
-  background:#1a1a1a;
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:var(--radius);
-  padding:28px 24px;
-  margin:0 auto 0;
-}
-.sme-card{
-  width:100%;
-  max-width:860px;
-  min-height:220px;
-  background:#111;
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:var(--radius);
-  padding:28px 24px;
-  box-shadow:none;
-  display:grid;
-  grid-template-columns:210px 1fr;
-  gap:24px;
-  align-items:center;
-  margin:18px auto 0;
-  overflow:hidden;
-}
+.cert-card{width:100%;max-width:860px;background:#1a1a1a;border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:28px 24px;margin:10px auto 0;}
+.sme-card{width:100%;max-width:860px;min-height:220px;background:#111;border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:28px 24px;box-shadow:none;display:grid;grid-template-columns:210px 1fr;gap:24px;align-items:center;margin:0 auto;}
 .dark-sme{background:#111;border:1px solid rgba(255,255,255,.15);}
 .dark-sme .sme-intro,.dark-sme .sme-list{color:#fff;}
 .dark-sme .tag{background:transparent;border:1.5px solid rgba(255,255,255,.45);color:rgba(255,255,255,.9);font-size:13px;padding:6px 12px;}
@@ -89,7 +67,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 6
 .sme-icon-wrap{display:flex;align-items:center;justify-content:center;}
 .sme-icon-circle{width:180px;height:180px;border-radius:50%;background:rgba(141,177,53,.08);display:flex;align-items:center;justify-content:center;}
 .sme-icon-circle svg{width:170px;height:170px;stroke:var(--green);fill:none;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;}
-.sme-content{border-left:2px solid rgba(141,177,53,.55);padding-left:18px;text-align:left;margin-left:0;}
+.sme-content{border-left:2px solid rgba(141,177,53,.55);padding-left:12px;text-align:left;margin-left:-6px;}
 .sme-intro{font-size:19px;line-height:1.7;color:#111;margin-bottom:18px;max-width:720px;}
 .sme-divider{height:1px;background:rgba(141,177,53,.45);margin:16px 0 18px;}
 .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
@@ -98,22 +76,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 6
 .sme-list strong{font-weight:700;}
 .section-sub{font-size:18px;line-height:1.7;color:#333;max-width:720px;margin:0 auto 14px;text-align:center;}
 @media(max-width:860px){
-  .sme-card{
-  width:100%;
-  max-width:860px;
-  min-height:220px;
-  background:#111;
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:var(--radius);
-  padding:28px 24px;
-  box-shadow:none;
-  display:grid;
-  grid-template-columns:210px 1fr;
-  gap:24px;
-  align-items:center;
-  margin:18px auto 0;
-  overflow:hidden;
-}
+  .sme-card{grid-template-columns:1fr;gap:18px;padding:24px 18px;}
   .sme-icon-circle{width:140px;height:140px;}
   .sme-icon-circle svg{width:130px;height:130px;}
   .sme-content{border-left:none;border-top:2px solid rgba(141,177,53,.55);padding-left:0;padding-top:18px;margin-left:0;text-align:left;}
@@ -122,29 +85,18 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 6
 
 .section.dark-section{
   background:#111;
+  margin:30px auto;
   padding:44px 24px;
   border-bottom:1px solid rgba(255,255,255,.1);
   width:100%;
+  max-width:980px;
+  border-radius:var(--radius);
   text-align:center;
   align-items:center;
-  border-radius:20px;
-  margin:30px auto;
-  max-width:980px;
   overflow:hidden;
 }
 .dark-section .section-label{color:var(--green);}
 .dark-section .section-sub{color:#fff;}
-
-/* ROUND OUTER SUBJECT MATTER SECTION BOX */
-.section.dark-section.subject-matter-section{
-  margin:44px auto 0 !important;
-  width:100% !important;
-  max-width:980px !important;
-  border-radius:var(--radius) !important;
-  overflow:hidden !important;
-  border:1px solid rgba(255,255,255,.14) !important;
-  border-bottom:1px solid rgba(255,255,255,.14) !important;
-}
 
 .cert-grid{list-style:none;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:0 24px;text-align:left;}
 .cert-icon{width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
@@ -184,11 +136,32 @@ footer{padding:14px 0 26px;display:flex;align-items:center;justify-content:cente
 
 .pull-quote + .body-text{margin-top:18px;}
 
-.cert-section .section-sub{
-  margin-bottom:6px;
-}
-.cert-section .cert-card{
-  margin-top:0;
+/* MOBILE FIRST-LOAD SME LAYOUT FIX */
+@media(max-width:860px){
+  .sme-card{
+    width:100% !important;
+    max-width:100% !important;
+    grid-template-columns:1fr !important;
+    overflow:hidden !important;
+  }
+
+  .sme-content{
+    width:100% !important;
+    min-width:0 !important;
+    margin-left:0 !important;
+  }
+
+  .sme-intro,
+  .sme-list{
+    max-width:100% !important;
+    overflow-wrap:break-word !important;
+    word-break:normal;
+  }
+
+  .sme-icon-wrap{
+    width:100% !important;
+    min-width:0 !important;
+  }
 }
 
 </style>
@@ -226,7 +199,7 @@ footer{padding:14px 0 26px;display:flex;align-items:center;justify-content:cente
     <p class="body-text">Across those environments, the pattern was consistent. Procedures existed. Certifications were in place. The issue wasn’t documentation — it was buy-in. Without it, requirements are inconsistently applied and a gap emerges between what is expected and what is actually executed.</p>
   </div>
 
-  <div class="section dark-section subject-matter-section">
+  <div class="section dark-section">
     <div class="section-label">Subject Matter Expertise</div>
     <div class="sme-card dark-sme">
       <div class="sme-icon-wrap">
@@ -285,7 +258,7 @@ footer{padding:14px 0 26px;display:flex;align-items:center;justify-content:cente
     </div>
   </div>
 
-  <div class="section dark-section cert-section">
+  <div class="section dark-section">
     <div class="section-label">Certifications</div>
     <p class="section-sub">Industry-recognized credentials demonstrating expertise in execution, audit readiness, and quality leadership.</p>
     <div class="cert-card">
